@@ -47,7 +47,7 @@ kumpulanpattern = [
     #8
     [r'(.*) (M|m)enu (.*)',
      ["Coba jelaskan menu dari {2}",
-      "Menu yang paling murah disana apas saja ?"]],
+      "Menu yang paling murah disana apa saja ?"]],
 
     #9
     [r'(.*) (M|m)urah (.*)',
@@ -135,8 +135,8 @@ katadiubah = {
     "anda" : "saya"
 }
 
-def ubah(kata):
-    splitkata = kata.lower().split()
+def ubah(kalimat):
+    splitkata = kalimat.lower().split()
     for indeks, indekskata in enumerate(splitkata):
         if indekskata in katadiubah:
             splitkata[indeks] = katadiubah[indekskata]
@@ -148,7 +148,7 @@ def proses(inputan):
         patternsama = re.match(pattern, inputan.rstrip(".!"))
         if patternsama:
             jawaban = random.choice(pilihanjawaban)
-            return jawaban.format(*[ubah(kata) for kata in patternsama.groups()])
+            return jawaban.format(*[ubah(kalimat) for kalimat in patternsama.groups()])
 
 def main():
     print "Bot  : Apa yang ingin Anda bicarakan tentang kuliner?"
